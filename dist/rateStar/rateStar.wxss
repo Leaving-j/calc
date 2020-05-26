@@ -1,0 +1,22 @@
+/* components/rateStar.wxss */
+
+.wrapper {
+	/* width: 100%; */
+  width: 250rpx;
+	height: 100%;
+  margin-left: 70rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.star-panel{
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.star-icon {
+	width: 30rpx;
+	height: 30rpx;
+}

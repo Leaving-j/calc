@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="page__bd">
+    <i-grid i-class="menu">
+      <i-grid-item i-class="menu-item-1" bindtap="waitpick">
+        <i-grid-icon i-class="menu-icon-1">
+          <image src="../../images/record_3.png" />
+        </i-grid-icon>
+        <i-grid-label i-class="menu-label item-1">个人所得税</i-grid-label>
+      </i-grid-item>
+      <i-grid-item i-class="menu-item-2" bindtap="havepick">
+        <i-grid-icon i-class="menu-icon-2">
+          <image src="../../images/record_3.png" />
+        </i-grid-icon>
+        <i-grid-label i-class="menu-label item-2">车贷</i-grid-label>
+      </i-grid-item>
+      <i-grid-item i-class="menu-item-3" bindtap="savepick">
+        <i-grid-icon i-class="menu-icon-3">
+          <image src="../../images/record_3.png" />
+        </i-grid-icon>
+        <i-grid-label i-class="menu-label item-3">房贷</i-grid-label>
+      </i-grid-item>
+    </i-grid>
+  </view>
+  <view class="page__ft"></view>
+</view>

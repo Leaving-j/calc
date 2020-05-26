@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<view class="page">
+	<view class="page__bd page__bd_spacing">
+		<view class="weui-cells">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">薪资：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputSalary" placeholder="请输入每月薪资" placeholder-style="color: #999999"/>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">专项附加扣除：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputDeduction" placeholder="请输入每月附加扣除总计" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">社保公积金：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputSocial" placeholder="请输入每月社保公积金总计" placeholder-style="color: #999999"/>
+				</view>
+			</view>
+		</view>
+		<view class="weui-cells btn">
+			<i-button bind:click="bindTapCalc" type="success" shape="circle" size="large">计算</i-button>
+		</view>
+		<view class="weui-cells" hidden="{{calcClick}}">
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label">每月薪资：</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{salary}}
+				</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label">全年累计缴税：</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{totalRate}}
+				</view>
+			</view>
+			<view class="weui-cell" wx:for="{{rates}}" wx:for-index="idx" wx:for-item="rate">
+				<view class="weui-cell__hd">
+					<view class="weui-label">{{idx+1}}月份应缴税款：</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{rate}}
+				</view>
+			</view>
+		</view>
+
+	</view>
+</view>

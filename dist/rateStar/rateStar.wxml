@@ -1,0 +1,13 @@
+<!--components/rateStar.wxml-->
+<view class="wrapper">
+  <block wx:for="{{redScore}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="star-panel" bindtap="giveScore" data-redIndex="{{index}}">
+      <image class="star-icon" src="../../images/complain_star.png"></image>
+    </view>
+  </block>
+  <block wx:for="{{grayScore}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="star-panel" data-greyIndex="{{index}}" bindtap="giveScore">
+    <image class="star-icon" src="../../images/complain_star_normal.png"></image>
+    </view>
+  </block>
+</view>

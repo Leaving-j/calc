@@ -1,0 +1,22 @@
+
+.weui-label {
+  width: 250rpx;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.weui-input {
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.btn {
+  background-color: #F8F8F8;
+}
+.weui-cell__fd {
+  font-size: 30rpx;
+  color: #666666;
+}
+.weui-cells:before{border:none}
+.weui-cells:after{border:none}
+.weui-cell:before{border:none}
