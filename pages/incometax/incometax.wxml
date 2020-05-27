@@ -33,7 +33,7 @@
 		<view class="weui-cells" hidden="{{calcClick}}">
 			<view class="weui-cell">
 				<view class="weui-cell__hd">
-					<view class="weui-label">每月薪资：</view>
+					<view class="weui-label">每月薪资</view>
 				</view>
 				<view class="weui-cell__bd">
 				</view>
@@ -43,7 +43,7 @@
 			</view>
 			<view class="weui-cell">
 				<view class="weui-cell__hd">
-					<view class="weui-label">全年累计缴税：</view>
+					<view class="weui-label">全年累计缴税</view>
 				</view>
 				<view class="weui-cell__bd">
 				</view>
@@ -53,7 +53,7 @@
 			</view>
 			<view class="weui-cell" wx:for="{{rates}}" wx:for-index="idx" wx:for-item="rate">
 				<view class="weui-cell__hd">
-					<view class="weui-label">{{idx+1}}月份应缴税款：</view>
+					<view class="weui-label">{{idx+1}}月份应缴税款</view>
 				</view>
 				<view class="weui-cell__bd">
 				</view>

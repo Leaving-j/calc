@@ -9,12 +9,12 @@ Page({
     },
     havepick: function(e) {
       wx.navigateTo({
-        url: '/pages/recordhave/recordhave',
+        url: '/pages/carloan/carloan',
       })
     },
     savepick: function(e) {
       wx.navigateTo({
-        url: '/pages/recordsave/recordsave',
+        url: '/pages/homeloan/homeloan',
       })
     },
     onLoad: function(options) {

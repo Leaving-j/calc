@@ -20,7 +20,8 @@ page{
 }
 .menu{
   border-left: none !important;
-  border-top: 1rpx solid #D2D2D2 !important;
+  border-top: none !important;
+  /* border-top: 1rpx solid #D2D2D2 !important; */
 }
 .menu-item-1 {
   margin-top: 33rpx;

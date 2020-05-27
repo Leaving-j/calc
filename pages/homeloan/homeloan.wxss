@@ -1,0 +1,42 @@
+
+.weui-label {
+  width: 250rpx;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.weui-input {
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.weui-cell__fd {
+  font-size: 30rpx;
+  color: #666666;
+}
+.title {
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 15rpx;
+}
+.weui-cells:before{border:none}
+.weui-cells:after{border:none}
+.weui-cell:before{border:none}
+
+radio{
+  height: 30rpx; 
+  width: 30rpx;
+}
+radio .wx-radio-input{ 
+  height: 30rpx; 
+  width: 30rpx;
+  background-color: #FFF;
+ }
+radio .wx-radio-input.wx-radio-input-checked{
+  background-color: #19BE6B;
+}
+
+.pickerView {
+  font-size: 30rpx;
+  color: #666666;
+}

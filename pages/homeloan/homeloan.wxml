@@ -1,0 +1,105 @@
+<!--index.wxml-->
+<view class="page">
+	<view class="page__bd page__bd_spacing">
+		<view class="weui-cells">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">商贷金额（元）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputPrice" placeholder="请输入商贷金额" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">年利率（%）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputRate" value="{{rate}}" placeholder="请输入贷款利率" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">贷款期限（年）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+						<view class="pickerView">
+							{{array[index]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">还贷方式：</view>
+				</view>
+				<view class="weui-cell__bd" style="margin-left:-20rpx;">
+					<radio-group bindchange="changeNum">
+						<label wx:for="{{numArr}}" wx:key="{{item.value}}" style="margin-left:20rpx;">
+							<radio value="{{item.value}}" checked="{{item.checked}}" />
+							<text class="title">{{item.name}}</text>
+						</label>
+					</radio-group>
+				</view>
+			</view>
+		</view>
+		<view class="weui-cells btn">
+			<i-button bind:click="bindTapCalc" type="success" shape="circle" size="large">计算</i-button>
+		</view>
+		<view class="weui-cells" hidden="{{calcClick}}">
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label">贷款金额</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{loanMoney}}
+				</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view wx:if="{{value == 1}}" class="weui-label">月供</view>
+					<view wx:if="{{value == 2}}" class="weui-label">首月月供</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{monthPay}}
+				</view>
+			</view>
+			<view class="weui-cell" wx:if="{{value == 2}}">
+				<view class="weui-cell__hd">
+					<view class="weui-label">每月递减</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{minus}}
+				</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label">支付利息</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{interestPay}}
+				</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label">还款总额</view>
+				</view>
+				<view class="weui-cell__bd">
+				</view>
+				<view class="weui-cell__fd">
+					{{totalPay}}
+				</view>
+			</view>
+		</view>
+
+	</view>
+</view>

@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/homeloan/homeloan",
+    "pages/carloan/carloan",
+    "pages/incometax/incometax"
   ],
   "window": {
     "backgroundTextStyle": "light",
