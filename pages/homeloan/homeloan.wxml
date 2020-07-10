@@ -1,13 +1,20 @@
 <!--index.wxml-->
 <view class="page">
+	<i-tabs current="{{ current }}" i-class="tabs" color="#19BE6B" bindchange="handleChange">
+		<i-tab key="tab1" title="商业贷款"></i-tab>
+		<i-tab key="tab2" title="公积金贷"></i-tab>
+		<i-tab key="tab3" title="组合贷款"></i-tab>
+	</i-tabs>
+
 	<view class="page__bd page__bd_spacing">
-		<view class="weui-cells">
+		<!-- 公积金贷和商贷 -->
+		<view class="weui-cells" wx:if="{{current != 'tab3'}}">
 			<view class="weui-cell weui-cell_input">
 				<view class="weui-cell__hd">
-					<view class="weui-label">商贷金额（元）：</view>
+					<view class="weui-label">贷款金额（元）：</view>
 				</view>
 				<view class="weui-cell__bd">
-					<input class="weui-input" type="digit" bindinput="bindInputPrice" placeholder="请输入商贷金额" placeholder-style="color: #999999" />
+					<input class="weui-input" type="digit" bindinput="bindInputPrice" placeholder="请输入贷款金额" placeholder-style="color: #999999" />
 				</view>
 			</view>
 			<view class="weui-cell weui-cell_input">
@@ -15,7 +22,7 @@
 					<view class="weui-label">年利率（%）：</view>
 				</view>
 				<view class="weui-cell__bd">
-					<input class="weui-input" type="digit" bindinput="bindInputRate" value="{{rate}}" placeholder="请输入贷款利率" placeholder-style="color: #999999" />
+					<input class="weui-input" type="digit" bindinput="bindInputRate" value="{{ current == 'tab1' ? rate : rate2}}" placeholder="请输入贷款利率" placeholder-style="color: #999999" />
 				</view>
 			</view>
 			<view class="weui-cell weui-cell_input">
@@ -44,6 +51,67 @@
 				</view>
 			</view>
 		</view>
+		<!-- 组合贷款 -->
+		<view class="weui-cells" wx:if="{{current == 'tab3'}}">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">商业贷（元）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputPrice" placeholder="请输入商业贷款金额" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">年利率（%）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputRate" value="{{rate}}" placeholder="请输入商业贷利率" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">公积金贷（元）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputPrice2" placeholder="请输入公积金贷款金额" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">年利率（%）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" bindinput="bindInputRate2" value="{{rate2}}" placeholder="请输入公积金贷利率" placeholder-style="color: #999999" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">贷款期限（年）：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+						<view class="pickerView">
+							{{array[index]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">还贷方式：</view>
+				</view>
+				<view class="weui-cell__bd" style="margin-left:-20rpx;">
+					<radio-group bindchange="changeNum">
+						<label wx:for="{{numArr}}" wx:key="{{item.value}}" style="margin-left:20rpx;">
+							<radio value="{{item.value}}" checked="{{item.checked}}" />
+							<text class="title">{{item.name}}</text>
+						</label>
+					</radio-group>
+				</view>
+			</view>
+		</view>
+
 		<view class="weui-cells btn">
 			<i-button bind:click="bindTapCalc" type="success" shape="circle" size="large">计算</i-button>
 		</view>
@@ -100,6 +168,5 @@
 				</view>
 			</view>
 		</view>
-
 	</view>
 </view>
